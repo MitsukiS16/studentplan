@@ -1,0 +1,46 @@
+.authentication form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; /* Center horizontally */
+	text-align: center; /* Center the label text */
+	max-width: 75%;
+	margin: 0 auto;
+}
+
+.authentication input[type="text"],
+.authentication input[type="password"],
+.authentication input[type="email"],
+.authentication input[type="url"] {
+	width: 50%;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid #ccc;
+	font-size: 1rem;
+	margin-top: 1rem;
+}
+
+.authentication p {
+	margin-top: 2rem;
+}
+
+.authentication a {
+	color: #ff8c00;
+}
+
+.authentication input[type="submit"] {
+	width: 20%;
+	margin: 1rem auto;
+	padding: 0.2rem 0 0.2rem 0;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.login-error-message {
+	background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

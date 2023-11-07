@@ -1,0 +1,25 @@
+.list-container {
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.list-item-card {
+	margin-top: 1rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+.list-item-card > h3,
+.list-item-card > p {
+	box-sizing: border-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 100%;
+}
+
+.list-item-card > h3 {
+	padding-bottom: 0.5rem;
+}

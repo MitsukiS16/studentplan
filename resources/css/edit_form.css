@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+.edit_form form {
+	display: grid;
+	flex-direction: column;
+	max-width: 75%;
+	margin: 0 auto;
+}
+
+.edit_form label {
+	font-family: "Roboto", sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.edit_form input[type="text"],
+.edit_form input[type="email"],
+.edit_form input[type="password"],
+.edit_form input[type="url"],
+.edit_form textarea {
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid #ccc;
+	resize: vertical;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+.edit_form select {
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+.edit_form select:disabled {
+	background-color: lightgray;
+}
+
+.edit_form input[type="submit"] {
+	width: 25%;
+	margin: 5rem auto;
+	padding: 1rem 0 1rem 0;
+	font-size: 1.5rem;
+}
+
+.departments-checkbox {
+	background-color: white;
+	padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+	display: flex;
+}
+
+.department-checkbox-id {
+	margin: 0 auto 0 auto;
+}

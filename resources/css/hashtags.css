@@ -1,0 +1,49 @@
+.tags-input {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tags-input input {
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+}
+
+.tag {
+	display: flex;
+	align-items: center;
+	background-color: #333;
+	color: white;
+	margin: 1px 5px 1px 1px;
+	border-radius: 5px;
+	padding: 0.5rem;
+	max-width: 200px;
+	max-height: 40px;
+}
+
+.tag span {
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	font-weight: bold;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.tag i {
+	cursor: pointer;
+}
+
+.tag i {
+	cursor: pointer;
+	border: 1px solid #fff;
+	border-radius: 100%;
+	padding: 1px 5px;
+	font-weight: bolder;
+}
+
+.tag i:hover {
+	color: #333;
+	background-color: #fff;
+}

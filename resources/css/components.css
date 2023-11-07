@@ -1,0 +1,97 @@
+.container-box {
+	background-color: white;
+	border: 0.1rem solid lightgrey;
+	box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.container-box-interactable:hover {
+	box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
+
+a.nav-button {
+	text-align: center;
+	width: max-content;
+	display: block;
+	padding: 0.5rem 1rem;
+	margin: 0 0.5rem;
+	color: #f5f5f5;
+	border-radius: 10px;
+}
+
+a.nav-button:hover {
+	background: #dbc6a9;
+	color: black;
+}
+
+.edit-button {
+	background-color: #a6a6a6;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 4px;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.25rem;
+	cursor: pointer;
+}
+
+.edit-button:hover {
+	background-color: #767676;
+}
+
+.delete-button {
+	background-color: #f44336;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.25rem;
+	cursor: pointer;
+}
+
+.delete-button:hover {
+	background-color: #b93e36;
+}
+
+.open-bubble {
+	background-color: rgb(55, 200, 55);
+}
+
+.assigned-bubble {
+	background-color: #f7b733;
+}
+
+.closed-bubble {
+	background-color: #f44336;
+}
+
+.hashtag-bubble {
+	background-color: #2ac2f0;
+}
+
+.status-bubble {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: var(--bubble-max-width);
+	margin: 0 0.5rem;
+	padding: 0.4rem 1rem;
+	border-radius: 99px;
+}
+
+.status-bubble > p {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#ticket-fetch-button:disabled {
+	display: none;
+}

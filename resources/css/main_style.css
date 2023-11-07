@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+:root {
+	--bubble-max-width: 300px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Popppins", sans-serif;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+}
+
+html {
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	min-height: 100vh;
+	background-image: linear-gradient(to bottom, white, #ffe8c7);
+	background-size: cover;
+}
+
+h1 {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 2.5rem;
+	text-align: center;
+	margin: 1rem;
+}
+
+a {
+	color: black;
+}
+
+.main-page-container {
+	flex-grow: 1;
+	margin: 3rem auto 3rem;
+}
+
+.main-container-size {
+	max-width: 1000px;
+	width: 100%;
+}
+
+.centered-flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.centered-flex-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.simple-flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.simple-flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.text-italic {
+	font-style: italic;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.light-gray-color {
+	color: grey;
+}
+
+.editable-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.editable-header form {
+	margin-left: 0.5rem;
+}
+
+.submit-button {
+	border-radius: 0.5rem;
+	border: none;
+	background-color: #fdae3e;
+	color: white;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.submit-button:hover {
+	background-color: #f7b733;
+}
+
+.width-20 {
+	width: 20%;
+}
+
+.width-100 {
+	width: 100%;
+}
+
+.width-fit {
+	width: fit-content;
+}
+
+.height-100 {
+	height: 100%;
+}
+
+.height-fit {
+	height: fit-content;
+}
+
+.mx-small {
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
+}
+
+.px-small {
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.py-small {
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}
+
+.py-medium {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.px-medium {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.p-small {
+	padding: 0.2rem;
+}
+
+.p-medium {
+	padding: 0.5rem;
+}
+.page-error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
