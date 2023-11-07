@@ -13,15 +13,16 @@ if (isMessageSet()) {
 }
 
 $article1_contents = array(
-    "Are you stumped on a subject and you just can't make any progress?",
-    "Do you need help and guidance for your educational journey?",
-    "Look no further! Classroom Student is your one-stop platform for all your needs."
+    "Are you striving for academic excellence and looking for a platform to organize your grades and subjects effectively?",
+    "Look no further! Classroom Student is your dedicated space to stay organized, responsible, and on top of your educational journey."
 );
 
 $instruction_contents = array(
-    "Submit Your Ticket: Simply submit a ticket detailing your query or request. Provide as much relevant information as possible to help our helperrs understand exactly what you need.",
-    "Receive Assistance: We understand the importance of fast and efficient support. After reviewing your ticket, our agents will do their best to meet your needs.",
-    "Collaborate and Learn: We encourage collaboration and learning. Take part in the conversation and help us help you. Ask questions, be relentless in your search for knowledge and hold us up to your highest standards!"
+    "Create Your Profile: Get started by creating your personalized profile. Input your subjects, grades, and achievements to keep track of your academic progress.",
+    "Track Your Progress: Easily input your grades and subjects into our user-friendly interface. Stay on top of your academic performance and see your progress over time.",
+    "Stay Organized: Manage your subjects, assignments, and exam dates all in one place. Say goodbye to confusion and hello to clarity in your studies",
+    "Set Goals: Set achievable goals and monitor your achievements. Visualize your academic growth and stay motivated throughout your learning journey.",
+    "Collaborate with Educators: Teachers and administrators can access your academic records, offer personalized guidance, and provide valuable insights to enhance your learning experience."
 );
 ?>
 

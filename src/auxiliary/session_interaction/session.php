@@ -117,3 +117,4 @@ function getSessionMessage()
 {
     return $_SESSION['message'];
 }
+
