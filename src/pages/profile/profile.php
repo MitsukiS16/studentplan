@@ -7,6 +7,7 @@ require_once('src/auxiliary/db_interaction/users.php');
 require_once('src/auxiliary/session_interaction/session.php');
 require_once('src/templates/injectable/list_templates.php');
 require_once('src/templates/injectable/profile_templates.php');
+require_once('');
 
 if (!isUserLoggedIn()) {
     redirectTo('sign-in');
@@ -38,6 +39,9 @@ if (!is_null($id)) {
 
     $picture = $user_data['picture'];
 
+    $subjects = getUserSubjects($pdo, $id);
+
+    $studentreportcards = getStudentReportCards($pdo, $id);
 
     $user_info = [
         "Username" => $user_data['username'],
@@ -47,6 +51,7 @@ if (!is_null($id)) {
 
 }
 ?>
+
 
 <main class="main-page-container main-container-size">
     <div class="profile-container">
@@ -67,7 +72,26 @@ if (!is_null($id)) {
                     <a class="edit-button" href="/profile/edit?id=<?php echo htmlspecialchars($_GET['id']); ?>">Edit</a>
                 <?php endif; ?>
             </div>
-        
+            <h2>My Report Cards</h2>
+            <hr>
+            <ul>
+                <?php
+                if (count($studentreportcards) === 0) {
+                    echo simpleErrorTemplate("Error accessing to report cards: you don't have access to any report card.");
+                } else {
+                    foreach ($reportcards as $reportcard) {
+                        $id_report_card = $ticket['id'];
+                        $id_subject = $ticket['subject'];
+                    
+                        // $url = "/reportcard";
+
+                        echo "<li>";
+                        echo listEntry($url, $ticket_id, $ticket_name);
+                        echo "</li>";
+                    }
+                }
+                ?>
+            </ul>
         </div>
     </div>
 </main>

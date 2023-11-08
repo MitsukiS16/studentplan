@@ -17,7 +17,7 @@ if (!isUserLoggedIn()) {
 }
 
 $session_role = getSessionUserRole();
-if ($session_role !== 'admin' && $session_role !== 'agent') {
+if ($session_role !== 'admin' && $session_role !== 'teacher' && $session_role !== 'student') {
     redirectTo('403');
 }
 
@@ -54,26 +54,25 @@ if (!is_null($id)) {
         <?php echo profileInfoTemplate($department_info) ?>
     </ul>
     <div>
-        <h2>My Report Card</h2>
+        <h2>My Report Cards</h2>
         <hr>
         <ul>
-        <?php
-            if (count($subjects) === 0) {
-                echo simpleErrorTemplate("Error accessing tickets: you don't have access to any tickets.");
+            <?php
+            if (count($studentreportcards) === 0) {
+                echo simpleErrorTemplate("Error accessing to report cards: you don't have access to any report card.");
             } else {
-                foreach ($subjects as $suject) {
-                    $subject_id = $suject['id'];
-                    $subject_name = $suject['title'];
+                foreach ($reportcards as $reportcard) {
+                    $id_report_card = $ticket['id'];
+                    $id_subject = $ticket['subject'];
+                
+                    // $url = "/reportcard";
 
-                    $url = "/subject";
-
-                    // echo "<li>";
-                    // echo listEntry($url, $subject_id, $subject_name);
-                    // echo "</li>";
+                    echo "<li>";
+                    echo listEntry($url, $ticket_id, $ticket_name);
+                    echo "</li>";
                 }
             }
             ?>
-
         </ul>
     </div>
 </main>

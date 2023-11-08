@@ -52,9 +52,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="POST">
             <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="text" id="firstname" name="firstname" placeholder="Primeiro Nome" required><br>
+            <input type="text" id="lastname" name="lastname" placeholder="Último Nome" required><br>
+
             <input type="email" id="email" name="email" placeholder="Email" required><br>
+
+            <!-- <select id="role" name="role">
+                <option>Estudante</option>
+                <option>Professor</option>
+                <!-- <option>Progenitor</option> 
+            </select>    -->
+
+            <!-- <input type="text" id="yearenrolled" name="yearenrolled" placeholder="Ano Atual" required><br>
+            <input type="text" id="trimesterenrolled" name="trimesterenrolled" placeholder="Período Atual" required><br> -->
+            
             <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required><br>
+
+            <label class="customCheckBox"> Concordo com os Termos e Condições
+                <input type="checkbox" id="checkboxtermos"required>
+            </label>
+            <label class="customCheckBox"> Concordo com a Política de Privacidade
+                <input type="checkbox" id="checkboxpolitica"required>
+            </label>
+
             <input type="submit" value="Register">
             <?php if (isset($error_message)) : ?>
                 <div class="login-error-message"><?php echo $error_message; ?></div>

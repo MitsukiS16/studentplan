@@ -12,9 +12,10 @@ if (isUserLoggedIn()) {
     switch (getSessionUserRole()) {
         case 'admin':
         case 'teacher':
-            // $nav_items["/departments"] = "Departments";
+           //$nav_items["/subjects"] = "Subjectss";
         default:
             $nav_items = array_merge($nav_items, array(
+                "/report" => "Report",
                 "/profile?id=" . getSessionUserID() => "Profile"
             ));
     }

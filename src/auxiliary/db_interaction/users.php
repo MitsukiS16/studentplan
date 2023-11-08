@@ -14,31 +14,31 @@ function getUserWithID($pdo, $id)
 
 function getUserWithUsername($pdo, $username)
 {
-    $query = $pdo->prepare('SELECT * FROM users WHERE username = ?');
+    $query = $pdo->prepare('SELECT * FROM USERS WHERE username = ?');
     $query->execute([$username]);
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 function getUserWithEmail($pdo, $email)
 {
-    $query = $pdo->prepare('SELECT * FROM users WHERE email = ?');
+    $query = $pdo->prepare('SELECT * FROM USERS WHERE email = ?');
     $query->execute([$email]);
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-// function getUserTickets($pdo, $id_user)
-// {
-//     $query = $pdo->prepare('SELECT * FROM tickets WHERE creator_id = ?');
-//     $query->execute([$id_user]);
-//     return $query->fetchAll();
-// }
+function getUserSubjects($pdo, $id_user)
+{
+    $query = $pdo->prepare('SELECT * FROM SUBJECTUSER WHERE id_user = ?');
+    $query->execute([$id_user]);
+    return $query->fetchAll();
+}
 
-// function getUserTicketsChunk($pdo, $id_user, $limit, $offset)
-// {
-//     $query = $pdo->prepare('SELECT * FROM tickets WHERE creator_id = ? LIMIT ? OFFSET ?');
-//     $query->execute([$id_user, $limit, $offset]);
-//     return $query->fetchAll(PDO::FETCH_ASSOC);
-// }
+function getUserSubjectsChunk($pdo, $id_user, $limit, $offset)
+{
+    $query = $pdo->prepare('SELECT * FROM SUBJECTUSER WHERE id_user = ? LIMIT ? OFFSET ?');
+    $query->execute([$id_user, $limit, $offset]);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
 
 // // function getUserDepartmentIDs($pdo, $id_user)
 // // {
@@ -102,3 +102,10 @@ function getAdminPassword($pdo, $id)
 // //     $query = $pdo->prepare("DELETE FROM USER_DEPARTMENTS WHERE id_user=? AND department_id=?");
 // //     return $query->execute([$id_user, $department_id]);
 // // }
+
+
+function getStudentReportCards($pdo, $id) {
+    $query = $pdo->prepare("SELECT * FROM STUDENTREPORTCARD WHERE id_user=?");
+    $query->execute([$id]);
+    return $query->fetch(PDO::FETCH_ASSOC);
+}

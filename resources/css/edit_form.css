@@ -15,8 +15,10 @@
 	margin-bottom: 0.5rem;
 }
 
+
 .edit_form input[type="text"],
 .edit_form input[type="email"],
+.edit_form select[type="role"],
 .edit_form input[type="password"],
 .edit_form input[type="url"],
 .edit_form textarea {

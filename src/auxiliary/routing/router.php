@@ -16,9 +16,12 @@ switch ($uri) {
     // case '/departments':
     //     include_once('src/pages/departments/departments.php');
     //     break;
-    // case '/department':
-    //     include_once('src/pages/departments/department.php');
-    //     break;
+    case '/subjects':
+        include_once('src/pages/subjects/subjects.php');
+        break;
+    case '/report':
+        include_once('src/pages/report/report.php');
+        break;
     case '/sign-in':
         include_once('src/pages/authentication/login.php');
         break;
@@ -28,6 +31,7 @@ switch ($uri) {
     case '/sign-out':
         include_once('src/routes/authentication/logout.php');
         break;
+    
     case '/403':
         include_once('src/pages/error/403.php');
         break;
