@@ -37,6 +37,7 @@ INSERT INTO USERS VALUES (
     1,
     1,
     1,
+    0,
     'admin',
     'admin@gmail.com',
     '$2y$10$Ye//Ghx8aDXJn0n171kcpeLSEmQjZOctTptE/gzFu8ZiO7WFWxYTq',
@@ -49,6 +50,7 @@ INSERT INTO USERS VALUES (
 
 INSERT INTO USERS VALUES ( 
     2,
+    1,
     1,
     1,
     1,

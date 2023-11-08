@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS USERS (
     id_school INTEGER,
     id_course INTEGER ,
     id_enrolled INTEGER ,
+    id_student_report INTEGER,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
     pw_hash BINARY,
@@ -20,7 +21,8 @@ CREATE TABLE IF NOT EXISTS USERS (
     created_at DATE DEFAULT (date('now')),
     FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school),
     FOREIGN KEY(id_course) REFERENCES COURSE(id_course),
-    FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled)
+    FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled),
+    FOREIGN KEY(id_student_report) REFERENCES STUDENTREPORT(id_student_report)
 );
 
 CREATE TABLE IF NOT EXISTS ENROLLED (
