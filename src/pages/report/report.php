@@ -82,7 +82,7 @@ switch ($session_role) {
                     echo "<td>" . $reportCountSubjects . "</td>";
                     echo "<td>" . $reportAverage . "</td>";
                     echo "<td>" . $reportLastUpdated . "</td>";
-                    echo "<td> <button type='button'>+</button> </td>";
+                    echo "<td> <button type='submit-button'>+</button> </td>";
                     echo "</tr>";
                 }
             ?>

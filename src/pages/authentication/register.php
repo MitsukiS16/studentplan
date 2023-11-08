@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if (isset($error_message)) : ?>
                 <div class="login-error-message"><?php echo $error_message; ?></div>
             <?php endif; ?>
-            <p>Already have an account? <a href="/sign-in">Sign in</a></p>
+            <p>Já tens uma conta?<a href="/sign-in">Entrar</a></p>
         </form>
     </div>
 </main>

@@ -46,10 +46,10 @@ switch (getSessionUserRole()) {
     <h1>Calculadoras</h1>
     <div>
         <ul class="">
-        <li><a class="button" href="#">Média do Ciclo/Curso</a></li>
-        <li><a class="button" href="#">Média Anual</a></li>
-        <li><a class="button" href="#">Média do Período</a></li>
-        <li><a class="button" href="#">Média da Disciplina</a></li>
+        <li><a class="nav-button" href="#">Média do Ciclo/Curso</a></li>
+        <li><a class="nav-button" href="#">Média Anual</a></li>
+        <li><a class="nav-button" href="#">Média do Período</a></li>
+        <li><a class="nav-button" href="#">Média da Disciplina</a></li>
 
         </ul>
 

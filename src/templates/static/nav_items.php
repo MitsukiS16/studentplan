@@ -22,7 +22,7 @@ if (isUserLoggedIn()) {
                 "/profile?id=" . getSessionUserID() => "Perfil"
             ));
     }
-    $nav_items['/sign-out'] = "Sign Out";
+    $nav_items['/sign-out'] = "Sair";
 } else {
-    $nav_items['/sign-in'] = "Sign In";
+    $nav_items['/sign-in'] = "Entrar";
 }

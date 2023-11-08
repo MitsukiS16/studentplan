@@ -38,17 +38,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <main class="main-page-container main-container-size">
-    <h1>Login</h1>
-    <div class="authentication">
-        <form method="POST">
-            <input type="text" id="username" name="username" placeholder="Username" required><br>
-            <input type="password" id="password" name="password" placeholder="Password" required><br>
-            <input type="submit" value="Login">
-            <?php if (isset($error_message)) : ?>
-                <div class="login-error-message"><?php echo $error_message; ?></div>
-            <?php endif; ?>
-            <p>Not registered yet? <a href="/sign-up">Sign up</a></p>
+    <div class="section-login">
+        <h1>Entrar</h1>
+        <div class="authentication">
+            <form method="POST">
+                <p>Utilizador</p>
+                <input type="text" id="username" name="username" placeholder="studentname@gmail.com" required><br>
+                <p>Palavra-Passe</p>
+                <input type="password" id="password" name="password" placeholder="iloveenglishsomuch" required><br>
+                <input type="submit" value="Login">
+                <?php if (isset($error_message)) : ?>
+                    <div class="login-error-message"><?php echo $error_message; ?></div>
+                <?php endif; ?>
+                <div class="message-register">
+                    <p>Ainda não te registas-te? <a href="/sign-up">Registar</a></p>
+                </div>
 
-        </form>
+            </form>
+        </div>
     </div>
 </main>
