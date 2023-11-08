@@ -1,8 +1,8 @@
 footer {
 	width: 100%;
 	padding: 1rem 5%;
-	background: #333;
-	color: #efefef;
+	background: var(--darkgrey);
+	color:  var(--lightgrey);
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
 	text-align: center;
@@ -35,8 +35,8 @@ footer > .col-2 form input {
 
 footer > .col-2 form button {
 	background: transparent;
-	border: 2px solid #fff;
-	color: #fff;
+	border: 2px solid white;
+	color: white;
 	border-radius: 30px;
 	padding: 10px 30px;
 	font-size: 15px;
@@ -52,6 +52,7 @@ footer > .col-3 h3 {
 	font-size: 22px;
 	margin: 10px;
 	cursor: pointer;
+
 }
 
 @media only screen and (max-width: 600px) {

@@ -3,16 +3,14 @@ DELETE FROM USERS;
 DELETE FROM ENROLLED;
 DELETE FROM COURSE;
 DELETE FROM SUBJECTS;
-DELETE FROM SUBJECTUSER;
 DELETE FROM COURSESUBJECT;
 DELETE FROM EVALUATION;
 DELETE FROM SUBJECTEVALUATION;
 DELETE FROM GRADE ;
 DELETE FROM EVALUATIONGRADE;
 DELETE FROM TEACHER;
-DELETE FROM STUDENTREPORT;
 DELETE FROM REPORTCARD;
-DELETE FROM STUDENTREPORTCARD;
+DELETE FROM REPORTCARDSUBJECTS;
 
 
 VACUUM;
@@ -36,7 +34,6 @@ INSERT INTO USERS VALUES (
     1,
     1,
     1,
-    1,
     0,
     'admin',
     'admin@gmail.com',
@@ -52,8 +49,7 @@ INSERT INTO USERS VALUES (
     2,
     1,
     1,
-    1,
-    1,
+    4,
     'sissi',
     'sissi@gmail.com',
     '$2y$10$Ye//Ghx8aDXJn0n171kcpeLSEmQjZOctTptE/gzFu8ZiO7WFWxYTq',
@@ -79,26 +75,38 @@ INSERT INTO ENROLLED VALUES (
     1,
     3
 );
+INSERT INTO ENROLLED VALUES ( 
+    4,
+    2,
+    1
+);
+INSERT INTO ENROLLED VALUES ( 
+    5,
+    2,
+    2
+);
+INSERT INTO ENROLLED VALUES ( 
+    6,
+    2,
+    3
+);
+
 
 INSERT INTO COURSE VALUES ( 
     1,
-    'primeiro ciclo',
-    8
+    'primeiro ciclo'
 );
 INSERT INTO COURSE VALUES ( 
     2,
-    'segundo ciclo',
-    8
+    'segundo ciclo'
 );
 INSERT INTO COURSE VALUES ( 
     3,
-    'terceiro ciclo',
-    8
+    'terceiro ciclo'
 );
 INSERT INTO COURSE VALUES ( 
     4,
-    'secundário',
-    8
+    'secundário'
 );
 
 INSERT INTO SUBJECTS VALUES ( 
@@ -116,25 +124,10 @@ INSERT INTO SUBJECTS VALUES (
     1,
     'ingles'
 );
-
-
-INSERT INTO SUBJECTUSER VALUES (
-    2,
+INSERT INTO SUBJECTS VALUES ( 
+    4,
     1,
-    4,
-    TRUE
-);
-INSERT INTO SUBJECTUSER VALUES (
-    2,
-    2,
-    4,
-    TRUE
-);
-INSERT INTO SUBJECTUSER VALUES (
-    2,
-    3,
-    4,
-    TRUE
+    'educação física'
 );
 
 INSERT INTO COURSESUBJECT VALUES (
@@ -148,6 +141,10 @@ INSERT INTO COURSESUBJECT VALUES (
 INSERT INTO COURSESUBJECT VALUES (
     1,
     3
+);
+INSERT INTO COURSESUBJECT VALUES (
+    1,
+    4
 );
 
 INSERT INTO EVALUATION VALUES ( 
@@ -187,26 +184,68 @@ INSERT INTO TEACHER VALUES (
     'rui'
 );
 
-
-INSERT INTO STUDENTREPORT VALUES ( 
-    1,
-    'admin organizado',
-    '2023-01-01 00:00:00',
-    '2023-01-01 00:00:01'
-);
-
 INSERT INTO REPORTCARD VALUES ( 
+    1,
+    2,
     1,
     1,
     '2023-01-01 00:00:00',
     '2023-01-01 00:00:01',
-    'report card admin'
+    'report card of first year on primary school'
+);
+
+INSERT INTO REPORTCARD VALUES ( 
+    2,
+    2,
+    1,
+    1,
+    '2023-01-01 00:00:00',
+    '2023-01-01 00:00:01',
+    'report card of second year on primary school'
 );
 
 
-INSERT INTO STUDENTREPORTCARD VALUES (
+INSERT INTO REPORTCARDSUBJECTS VALUES (
     1,
-    1
+    1,
+    FALSE
 ); 
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    1,
+    2,
+    FALSE
+); 
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    1,
+    3,
+    FALSE
+); 
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    1,
+    4,
+    FALSE
+); 
+
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    2,
+    1,
+    TRUE
+); 
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    2,
+    2,
+    TRUE
+); 
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    2,
+    3,
+    TRUE
+); 
+INSERT INTO REPORTCARDSUBJECTS VALUES (
+    2,
+    4,
+    TRUE
+); 
+
 
 

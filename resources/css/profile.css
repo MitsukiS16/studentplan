@@ -32,14 +32,14 @@
 .profile-info h2 {
 	font-size: 1.2em;
 	font-weight: bold;
-	color: #333333;
+	color: var(--darkgrey);
 	margin-bottom: 0.2rem;
 	align-self: flex-start;
 }
 
 .profile-info h3 {
 	font-size: 1em;
-	color: #777777;
+	color: var(--lightgrey);
 	margin-bottom: 0.5rem;
 	align-self: flex-start;
 	overflow: scroll;

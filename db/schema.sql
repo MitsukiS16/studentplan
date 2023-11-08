@@ -8,9 +8,8 @@ CREATE TABLE IF NOT EXISTS SCHOOL (
 CREATE TABLE IF NOT EXISTS USERS (
     id_user INTEGER NOT NULL PRIMARY KEY,
     id_school INTEGER,
-    id_course INTEGER ,
-    id_enrolled INTEGER ,
-    id_student_report INTEGER,
+    id_course INTEGER,
+    id_enrolled INTEGER,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
     pw_hash BINARY,
@@ -21,8 +20,7 @@ CREATE TABLE IF NOT EXISTS USERS (
     created_at DATE DEFAULT (date('now')),
     FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school),
     FOREIGN KEY(id_course) REFERENCES COURSE(id_course),
-    FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled),
-    FOREIGN KEY(id_student_report) REFERENCES STUDENTREPORT(id_student_report)
+    FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled)
 );
 
 CREATE TABLE IF NOT EXISTS ENROLLED (
@@ -33,8 +31,7 @@ CREATE TABLE IF NOT EXISTS ENROLLED (
 
 CREATE TABLE IF NOT EXISTS COURSE (
     id_course INTEGER NOT NULL PRIMARY KEY,
-    name_course VARCHAR(30),
-    number_subject INT
+    name_course VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS SUBJECTS (
@@ -42,16 +39,6 @@ CREATE TABLE IF NOT EXISTS SUBJECTS (
     id_teacher INTEGER NOT NULL,
     name_subject VARCHAR(30) NOT NULL,
     FOREIGN KEY(id_teacher) REFERENCES TEACHER(id_teacher)
-);
-
-CREATE TABLE IF NOT EXISTS SUBJECTUSER (
-    id_user INTEGER NOT NULL,
-    id_subject INTEGER NOT NULL,
-    happiness INT,
-    subject_status BOOLEAN NOT NULL DEFAULT 'TRUE',
-    FOREIGN KEY(id_user) REFERENCES USER(id_user),
-    FOREIGN KEY(id_subject) REFERENCES SUBJECTS(id_subject),
-    CONSTRAINT subjects_user_pk PRIMARY KEY (id_user, id_subject)
 );
 
 CREATE TABLE IF NOT EXISTS COURSESUBJECT (
@@ -97,26 +84,26 @@ CREATE TABLE IF NOT EXISTS TEACHER (
     name_teacher VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS STUDENTREPORT (
-    id_student_report INTEGER NOT NULL PRIMARY KEY,
-    description_student_report TEXT,
-    created_at DATETIME DEFAULT (datetime('now')),
-    updated_at DATETIME DEFAULT (datetime('now'))
-);
 
 CREATE TABLE IF NOT EXISTS REPORTCARD (
     id_report_card INTEGER NOT NULL PRIMARY KEY,
-    id_subject INTEGER NOT NULL,
+    id_user INTEGER,
+    id_school INTEGER,
+    id_enrolled INTEGER,
     created_at DATETIME DEFAULT (datetime('now')),
     updated_at DATETIME DEFAULT (datetime('now')),
     description_report_card TEXT,
-    FOREIGN KEY(id_subject) REFERENCES SUBJECTSTUDENT(id_subject)
+    FOREIGN KEY(id_user) REFERENCES USER(id_user),
+    FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school)
+    FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled)
 );
 
-CREATE TABLE IF NOT EXISTS STUDENTREPORTCARD (
-    id_student_report INTEGER NOT NULL,
+CREATE TABLE IF NOT EXISTS REPORTCARDSUBJECTS (
     id_report_card INTEGER NOT NULL,
-    FOREIGN KEY(id_student_report) REFERENCES STUDENTREPORT(id_student_report),
+    id_subject INTEGER NOT NULL,
+    subject_status BOOLEAN NOT NULL,
     FOREIGN KEY(id_report_card) REFERENCES REPORTCARD(id_report_card),
-    CONSTRAINT student_report_card_pk PRIMARY KEY (id_student_report, id_report_card)
+    FOREIGN KEY(id_subject) REFERENCES SUBJECTS(id_subject),
+    CONSTRAINT report_card_subjects_pk PRIMARY KEY (id_report_card, id_subject)
 );
+

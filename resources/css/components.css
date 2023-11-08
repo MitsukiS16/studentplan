@@ -1,6 +1,6 @@
 .container-box {
 	background-color: white;
-	border: 0.1rem solid lightgrey;
+	border: 0.1rem solid var(--lightgrey);
 	box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
@@ -15,18 +15,18 @@ a.nav-button {
 	display: block;
 	padding: 0.5rem 1rem;
 	margin: 0 0.5rem;
-	color: #f5f5f5;
+	color: var(--lightgrey);
 	border-radius: 10px;
 }
 
 a.nav-button:hover {
-	background: #dbc6a9;
+	background: var(--greenblue);
 	color: black;
 }
 
 .edit-button {
-	background-color: #a6a6a6;
-	color: rgb(255, 255, 255);
+	background-color: var(--lightgrey);
+	color: white;
 	border: none;
 	border-radius: 4px;
 	padding: 0.5rem 1rem;
@@ -39,11 +39,11 @@ a.nav-button:hover {
 }
 
 .edit-button:hover {
-	background-color: #767676;
+	background-color: var(--greenblue);
 }
 
 .delete-button {
-	background-color: #f44336;
+	background-color: var(--purple);
 	border: none;
 	border-radius: 4px;
 	color: white;
@@ -57,19 +57,19 @@ a.nav-button:hover {
 }
 
 .delete-button:hover {
-	background-color: #b93e36;
+	background-color:var(--greenblue);
 }
 
 .open-bubble {
-	background-color: rgb(55, 200, 55);
+	background-color: var(--purple);
 }
 
 .assigned-bubble {
-	background-color: #f7b733;
+	background-color: var(--lightblue);
 }
 
 .closed-bubble {
-	background-color: #f44336;
+	background-color:var(--purple);
 }
 
 .status-bubble {

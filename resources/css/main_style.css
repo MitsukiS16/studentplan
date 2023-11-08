@@ -2,6 +2,12 @@
 
 :root {
 	--bubble-max-width: 300px;
+	--lightblue: #a5def2;
+	--greenblue: #5baeb7;
+	--blue: #1e80c1;
+	--purple: #414c6b;
+	--lightgrey: #ccc;
+	--darkgrey: #333;
 }
 
 * {
@@ -22,7 +28,7 @@ body {
 	flex-direction: column;
 	width: 100vw;
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom, white, #ffe8c7);
+	background-image: linear-gradient(to bottom, white, var(--lightblue));
 	background-size: cover;
 }
 
@@ -113,14 +119,14 @@ a {
 .submit-button {
 	border-radius: 0.5rem;
 	border: none;
-	background-color: #fdae3e;
+	background-color: var(--blue);
 	color: white;
 	font-weight: bolder;
 	cursor: pointer;
 }
 
 .submit-button:hover {
-	background-color: #f7b733;
+	background-color: var(--greenblue);
 }
 
 .width-20 {

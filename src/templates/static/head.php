@@ -18,6 +18,8 @@ include_once('../../auxiliary/routing/checkURI.php');
     <link rel="stylesheet" href="/resources/css/profile.css">
     <link rel="stylesheet" href="/resources/css/authentication.css">
     <link rel="stylesheet" href="/resources/css/components.css">
+    <link rel="stylesheet" href="/resources/css/report.css">
+
 
     <script src="https://kit.fontawesome.com/3fb2bb04e9.js" crossorigin="anonymous"></script>
     <script src="/resources/scripts/escapeHTML.js"></script>

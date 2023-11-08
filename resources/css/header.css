@@ -5,8 +5,8 @@ header {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	background: #333;
-	color: #fff;
+	background: var(--darkgrey);
+	color: white;
 	padding: 1rem 1.5rem;
 	left: 0;
 	right: 0;
@@ -18,12 +18,12 @@ header {
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 22px;
-	color: #fff;
+	color: white;
 }
 
 .header-logo > i {
 	vertical-align: middle;
-	color: #ffc677;
+	color: var(--blue);
 	margin-right: 1rem;
 	font-size: 30px;
 }
@@ -62,7 +62,7 @@ header {
 .header-menu-button::before,
 .header-menu-button::after {
 	display: block;
-	background-color: #fff;
+	background-color: white;
 	position: absolute;
 	height: 4px;
 	width: 30px;
@@ -124,7 +124,7 @@ header {
 	}
 
 	#menu-toggle:checked ~ .header-menu li {
-		border: 1px solid #333;
+		border: 1px solid var(--darkgrey);
 		height: 3.5em;
 		padding: 0.5em;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -137,10 +137,10 @@ header {
 		padding: 0.5em 0;
 		width: 100%;
 		color: white;
-		background-color: #222;
+		background-color:var(--darkgrey);
 	}
 
 	.header-menu > li:not(:last-child) {
-		border-bottom: 1px solid #444;
+		border-bottom: 1px solid var(--darkgrey);
 	}
 }

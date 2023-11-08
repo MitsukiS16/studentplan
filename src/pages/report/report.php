@@ -21,40 +21,64 @@ if ($session_role !== 'admin' && $session_role !== 'teacher' && $session_role !=
     redirectTo('403');
 }
 
-// fetch subjects id if set
-$id = isset($_GET['id']) ? $_GET['id'] : null;
+switch (getSessionUserRole()) {
+    case 'admin':
+        break;
+    case 'teacher':
+        break;
+    case 'student':
+    default:
+        $reportcard = getReportCard($pdo, getSessionUserID());
+        $nsubjects = getCountSubjets($pdo, getSessionUserID());
+        $lastUpdated = getLastDateUpdated($pdo, getSessionUserID());
+        $
 
-// if a parameter was passed, we try to get that ticket from the database
-if (!is_null($id)) {
-    //connect to db (path starts in root, since we're importing ticket.php there)
-
-    $db_path = 'db/app.db';
-    $pdo = connectToDB($db_path);
-
-    $course = getCourseWithID($pdo, $id);
-
-    if ($department) {
-        $subjects = getCourseSubjects($pdo, $id);
-
-        $course_info = array(
-            "Subjects" => getCourseSubjectsCount($pdo, $id),
-            "Users" => getCourseUsersCount($pdo, $id)
-        );
-    }
+    $tickets = getUserTicketsChunk($pdo, getSessionUserID(), $limit, $offset);
+        break;
 }
-
 
 ?>
 
-<main class="list-container main-page-container">
-    <div class="editable-header">
-        <h1 class="page-header"><?php echo $department['department_name'] ?></h1>
-    </div>
-    <ul class="profile-info width-100">
-        <?php echo profileInfoTemplate($department_info) ?>
-    </ul>
+<main class="main-page-container main-container-size">
+    <h1>Relatórios Anuais</h1>
     <div>
-        <h2>Relatórios Anuais</h2>
-        
+        <li><a class="table" href="#"></a></li>
+        <table id="reportcards">
+            <tr>
+                <th>Ciclo/Curso</th>
+                <th>Ano</th>
+                <th>Nº Disciplinas</th>
+                <th>Nº Alunos</th>
+                <!-- Add more table headers as needed -->
+            </tr>
+            <tr>
+                <td><?php echo htmlspecialchars($course['cycle']); ?></td>
+                <td><?php echo htmlspecialchars($course['year']); ?></td>
+                <td><?php echo htmlspecialchars($course_info['Subjects']); ?></td>
+                <td><?php echo htmlspecialchars($course_info['Users']); ?></td>
+                <!-- Add more table data cells as needed -->
+            </tr>
+        </table>
+        <!-- <table id="reportcards">
+            <tr>
+                <th>Ciclo/Curso</th>
+                <th>Ano</th>
+                <th>Nº Disciplinas</th>
+                <th>Escola</th>
+                <th>Média</th>
+                <th>Outras Info</th>
+            </tr>
+            <tr>
+                <td>1º Ciclo</td>
+                <td>1º Ano</td>
+                <td>4</td>
+                <td>30</td>
+                <td>Picua</td>
+                <td>3</td>
+                <td>+</td>
+            </tr>
+            </table> -->
     </div>
+
+
 </main>
