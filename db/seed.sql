@@ -102,20 +102,17 @@ INSERT INTO COURSE VALUES (
 INSERT INTO SUBJECTS VALUES ( 
     1,
     1,
-    'matematica',
-    30
+    'matematica'
 );
 INSERT INTO SUBJECTS VALUES ( 
     2,
     1,
-    'portugues',
-    30
+    'portugues'
 );
 INSERT INTO SUBJECTS VALUES ( 
     3,
     1,
-    'ingles',
-    30
+    'ingles'
 );
 
 

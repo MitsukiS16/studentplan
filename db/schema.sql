@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS SUBJECTS (
     id_subject INTEGER NOT NULL PRIMARY KEY,
     id_teacher INTEGER NOT NULL,
     name_subject VARCHAR(30) NOT NULL,
-    student_count INT,
     FOREIGN KEY(id_teacher) REFERENCES TEACHER(id_teacher)
 );
 

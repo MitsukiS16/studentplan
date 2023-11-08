@@ -48,6 +48,7 @@ if (!is_null($id)) {
         "Joined in" => $user_data['created_at'],
     ];
 
+
 }
 ?>
 
@@ -75,17 +76,17 @@ if (!is_null($id)) {
             <hr>
             <ul>
                 <?php
-                if (count($studentreportcards) === 0) {
+                if (count($subjects) === 0) {
                     echo simpleErrorTemplate("Error accessing to report cards: you don't have access to any report card.");
                 } else {
-                    foreach ($reportcards as $reportcard) {
-                        $id_report_card = $ticket['id'];
-                        $id_subject = $ticket['subject'];
+                    foreach ($subjects as $subject) {
+                        $id_subject = $ticket['id'];
+                        $name_subject = $ticket['name'];
                     
-                        // $url = "/reportcard";
+                        $url = "/subject";
 
                         echo "<li>";
-                        echo listEntry($url, $ticket_id, $ticket_name);
+                        echo listEntry($url, $id_subject, $name_subject);
                         echo "</li>";
                     }
                 }

@@ -55,24 +55,6 @@ if (!is_null($id)) {
     </ul>
     <div>
         <h2>My Report Cards</h2>
-        <hr>
-        <ul>
-            <?php
-            if (count($studentreportcards) === 0) {
-                echo simpleErrorTemplate("Error accessing to report cards: you don't have access to any report card.");
-            } else {
-                foreach ($reportcards as $reportcard) {
-                    $id_report_card = $ticket['id'];
-                    $id_subject = $ticket['subject'];
-                
-                    // $url = "/reportcard";
-
-                    echo "<li>";
-                    echo listEntry($url, $ticket_id, $ticket_name);
-                    echo "</li>";
-                }
-            }
-            ?>
-        </ul>
+        
     </div>
 </main>

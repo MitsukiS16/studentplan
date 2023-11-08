@@ -28,7 +28,7 @@ function getUserWithEmail($pdo, $email)
 
 function getUserSubjects($pdo, $id_user)
 {
-    $query = $pdo->prepare('SELECT * FROM SUBJECTUSER WHERE id_user = ?');
+    $query = $pdo->prepare('SELECT * FROM SUBJECTUSER WHERE id_user = ? AND subject_status = TRUE');
     $query->execute([$id_user]);
     return $query->fetchAll();
 }
