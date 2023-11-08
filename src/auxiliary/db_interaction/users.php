@@ -26,19 +26,37 @@ function getUserWithEmail($pdo, $email)
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-function getUserSubjects($pdo, $id_user)
+function getUserSubjects($pdo, $id_user, $id_report_card)
 {
-    $query = $pdo->prepare('SELECT * FROM SUBJECTUSER WHERE id_user = ? AND subject_status = TRUE');
+    $query = $pdo->prepare('
+        SELECT s.id_subject, s.name_subject
+        FROM SUBJECTS s
+        JOIN REPORTCARDSUBJECTS rs ON s.id_subject = rs.id_subject
+        WHERE rs.id_report_card = ? AND rs.id_report_card IN (
+            SELECT id_report_card FROM REPORTCARD WHERE id_user = ?
+        )
+    ');
+    $query->execute([$id_report_card, $id_user]);
+    return $query->fetchAll();
+}
+
+function getCurrentUsersSubjects($pdo, $id_user)
+{
+    $query = $pdo->prepare('
+        SELECT s.id_subject, s.name_subject
+        FROM SUBJECTS s
+        JOIN REPORTCARDSUBJECTS rs ON s.id_subject = rs.id_subject
+        WHERE rs.subject_status = TRUE
+        AND rs.id_report_card IN (
+            SELECT id_report_card FROM REPORTCARD WHERE id_user = ?
+        )
+    ');
     $query->execute([$id_user]);
     return $query->fetchAll();
 }
 
-function getUserSubjectsChunk($pdo, $id_user, $limit, $offset)
-{
-    $query = $pdo->prepare('SELECT * FROM SUBJECTUSER WHERE id_user = ? LIMIT ? OFFSET ?');
-    $query->execute([$id_user, $limit, $offset]);
-    return $query->fetchAll(PDO::FETCH_ASSOC);
-}
+
+
 
 // // function getUserDepartmentIDs($pdo, $id_user)
 // // {

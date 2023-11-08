@@ -28,12 +28,11 @@ switch (getSessionUserRole()) {
         break;
     case 'student':
     default:
-        $reportcard = getReportCard($pdo, getSessionUserID());
-        $nsubjects = getCountSubjets($pdo, getSessionUserID());
-        $lastUpdated = getLastDateUpdated($pdo, getSessionUserID());
-        $
+        // $reportcard = getReportCard($pdo, getSessionUserID());
+        // $nsubjects = getCountSubjets($pdo, getSessionUserID());
+        // $lastUpdated = getLastDateUpdated($pdo, getSessionUserID());
 
-    $tickets = getUserTicketsChunk($pdo, getSessionUserID(), $limit, $offset);
+    //$reportcardstickets = getUserTicketsChunk($pdo, getSessionUserID(), $limit, $offset);
         break;
 }
 

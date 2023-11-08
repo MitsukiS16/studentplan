@@ -38,7 +38,7 @@ switch (getSessionUserRole()) {
     case 'student':
     default:
         // for additional roles that may be created (functionally equivalent to a client, when it comes to permissions)
-        $subjects = getUserSubjectsChunk($pdo, getSessionUserID(), $limit, $offset);
+        $subjects = getUserSubjects($pdo, getSessionUserID(), $limit, $offset);
         break;
 }
 
