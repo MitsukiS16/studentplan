@@ -1,26 +1,13 @@
 <?php
 include_once('../../auxiliary/routing/checkURI.php');
 
-function buildSnippets($snippets)
+function listEntry($url, $id, $name)
 {
-    $htmlStr = "";
-    foreach ($snippets as $label => $value) {
-        if (!empty($value)) {
-            switch ($label) {
-                case 'Status':
-                    $htmlStr .= <<<HTML
-                        <div class="{$value}-bubble status-bubble">
-                            <p>{$value}</p>
-                        </div>
-                    HTML;
-                    break;
-                default:
-                    $htmlStr .= <<<HTML
-                        <p class="mx-small">{$label}: {$value}</p>
-                    HTML;
-                    break;
-            }
-        }
-    }
-    return $htmlStr;
+    return <<<HTML
+    <a class="w-full" href="{$url}?id={$id}">
+        <div class="list-item-card container-box container-box-interactable">
+            <h3>{$name}</h3>
+        </div>
+    </a>
+    HTML;
 }
