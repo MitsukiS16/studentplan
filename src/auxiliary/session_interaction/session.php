@@ -39,7 +39,7 @@ function unsetMessage()
  */
 function isUserLoggedIn()
 {
-    return isset($_SESSION['user_id']);
+    return isset($_SESSION['id_user']);
 }
 
 /**
@@ -53,13 +53,13 @@ function isMessageSet()
 
 /**
  * Sets the user-related data of the session variable
- * @param $user_id - the user's id
+ * @param $id_user - the user's id
  * @param $username - the user's username
  * @param $role - the role of the user
  */
-function setSessionUserData($user_id, $username, $role)
+function setSessionUserData($id_user, $username, $role)
 {
-    $_SESSION['user_id'] = $user_id;
+    $_SESSION['id_user'] = $id_user;
     $_SESSION['username'] = $username;
     $_SESSION['role'] = $role;
 }
@@ -73,46 +73,28 @@ function setSessionMessage($msg)
     $_SESSION['message'] = $msg;
 }
 
-/**
- * Gets the currently logged-in user's id
- * @return the logged-in user's id
- */
+
 function getSessionUserID()
 {
-    return intval($_SESSION['user_id']);
+    return $_SESSION['id_user'];
 }
 
-/**
- * Gets the currently logged-in user's username
- * @return the logged-in user's username
- */
 function getSessionUsername()
 {
     return $_SESSION['username'];
 }
 
-/**
- * Gets the currently logged-in user's role
- * @return the logged-in user's role
- */
+
 function getSessionUserRole()
 {
     return $_SESSION['role'];
 }
 
-/**
- * Gets the currently logged-in user's full data
- * @return an array with the user id, username and role, in that order
- */
 function getSessionUserData()
 {
-    return array(intval($_SESSION['user_id']), $_SESSION['username'], $_SESSION['role']);
+    return array($_SESSION['id_user'], $_SESSION['username'], $_SESSION['role']);
 }
 
-/**
- * Gets the currently set session message
- * @return the session message value
- */
 function getSessionMessage()
 {
     return $_SESSION['message'];

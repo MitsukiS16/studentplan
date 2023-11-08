@@ -13,9 +13,7 @@ include_once('../../auxiliary/routing/checkURI.php');
     <link rel="stylesheet" href="/resources/css/home.css">
     <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/footer.css">
-    <link rel="stylesheet" href="/resources/css/ticket.css">
     <link rel="stylesheet" href="/resources/css/lists.css">
-    <link rel="stylesheet" href="/resources/css/hashtags.css">
     <link rel="stylesheet" href="/resources/css/edit_form.css">
     <link rel="stylesheet" href="/resources/css/profile.css">
     <link rel="stylesheet" href="/resources/css/authentication.css">
@@ -24,11 +22,7 @@ include_once('../../auxiliary/routing/checkURI.php');
     <script src="https://kit.fontawesome.com/3fb2bb04e9.js" crossorigin="anonymous"></script>
     <script src="/resources/scripts/escapeHTML.js"></script>
     <script src="/resources/scripts/list_templates.js"></script>
-    <script src="/resources/scripts/form.js" defer></script>
     <script src="/resources/scripts/popup.js" defer></script>
-    <script src="/resources/scripts/comment_button.js" defer></script>
-    <script src="/resources/scripts/edit_ticket.js" defer></script>
-    <script src="/resources/scripts/fetch_tickets.js" defer></script>
 
     <title>Classroom Student</title>
 </head>

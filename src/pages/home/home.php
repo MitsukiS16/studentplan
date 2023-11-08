@@ -2,7 +2,6 @@
 include_once('../../auxiliary/routing/checkURI.php');
 
 require_once('src/auxiliary/db_interaction/db.php');
-require_once('src/auxiliary/db_interaction/departments.php');
 require_once('src/auxiliary/session_interaction/session.php');
 
 startSession();
@@ -18,7 +17,7 @@ $article1_contents = array(
 );
 
 $instruction_contents = array(
-    "Create Your Profile: Get started by creating your personalized profile. Input your subjects, grades, and achievements to keep track of your academic progress.",
+    "Create Your Profile: Get started by creating your personalized profile. Input your subjects, grades, and achievements to keep track of your progress.",
     "Track Your Progress: Easily input your grades and subjects into our user-friendly interface. Stay on top of your academic performance and see your progress over time.",
     "Stay Organized: Manage your subjects, assignments, and exam dates all in one place. Say goodbye to confusion and hello to clarity in your studies",
     "Set Goals: Set achievable goals and monitor your achievements. Visualize your academic growth and stay motivated throughout your learning journey.",

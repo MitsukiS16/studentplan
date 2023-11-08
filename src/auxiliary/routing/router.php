@@ -10,24 +10,15 @@ switch ($uri) {
     case '/':
         include_once('src/pages/home/home.php');
         break;
-    case '/browse':
-        include_once('src/pages/browse.php');
-        break;
-    case '/ticket':
-        include_once('src/pages/ticket/ticket.php');
-        break;
-    case '/tickets':
-        include_once('src/pages/ticket/tickets.php');
-        break;
-    case '/ticket/create':
-        include_once('src/pages/ticket/create_ticket.php');
-        break;
-    case '/departments':
-        include_once('src/pages/departments/departments.php');
-        break;
-    case '/department':
-        include_once('src/pages/departments/department.php');
-        break;
+    // case '/browse':
+    //     include_once('src/pages/browse.php');
+    //     break;
+    // case '/departments':
+    //     include_once('src/pages/departments/departments.php');
+    //     break;
+    // case '/department':
+    //     include_once('src/pages/departments/department.php');
+    //     break;
     case '/sign-in':
         include_once('src/pages/authentication/login.php');
         break;
@@ -36,9 +27,6 @@ switch ($uri) {
         break;
     case '/sign-out':
         include_once('src/routes/authentication/logout.php');
-        break;
-    case '/ticket/edit':
-        include_once('src/pages/ticket/edit_ticket.php');
         break;
     case '/403':
         include_once('src/pages/error/403.php');

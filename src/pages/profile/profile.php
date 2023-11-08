@@ -4,7 +4,6 @@ include_once('../../auxiliary/routing/checkURI.php');
 require_once('src/auxiliary/routing/redirect.php');
 require_once('src/auxiliary/db_interaction/db.php');
 require_once('src/auxiliary/db_interaction/users.php');
-require_once('src/auxiliary/db_interaction/tickets.php');
 require_once('src/auxiliary/session_interaction/session.php');
 require_once('src/templates/injectable/list_templates.php');
 require_once('src/templates/injectable/profile_templates.php');
@@ -30,7 +29,7 @@ if (!is_null($id)) {
         redirectTo('404');
     }
 
-    if ($user_data['user_id'] !== getSessionUserID()) {
+    if ($user_data['id_user'] !== getSessionUserID()) {
         $session_role = getSessionUserRole();
         if ($session_role !== 'admin' && $session_role  !== 'agent') {
             redirectTo('403');
@@ -39,7 +38,6 @@ if (!is_null($id)) {
 
     $picture = $user_data['picture'];
 
-    $tickets = getUserTickets($pdo, $id);
 
     $user_info = array(
         "Username" => $user_data['username'],
@@ -47,9 +45,6 @@ if (!is_null($id)) {
         "Joined in" => $user_data['created_at'],
     );
 
-    foreach ($tickets as $ticket) {
-        $hashtags[$ticket['id']] = getTicketHashtags($pdo, $ticket['id']);
-    }
 }
 ?>
 
@@ -72,32 +67,7 @@ if (!is_null($id)) {
                     <a class="edit-button" href="/profile/edit?id=<?php echo htmlspecialchars($_GET['id']); ?>">Edit</a>
                 <?php endif; ?>
             </div>
-            <h2>My Tickets</h2>
-            <hr>
-            <ul>
-                <?php
-                if (count($tickets) === 0) {
-                    echo simpleErrorTemplate("Error accessing tickets: you don't have access to any tickets.");
-                } else {
-                    foreach ($tickets as $ticket) {
-                        $ticket_id = $ticket['id'];
-                        $ticket_name = $ticket['title'];
-                        $hashtags = getTicketHashtags($pdo, $ticket_id);
-
-                        $snippets = array(
-                            "Status" => $ticket['ticket_status'],
-                            "Hashtags" => implode(" ", array_map('htmlspecialchars', $hashtags))
-                        );
-
-                        $url = "/ticket";
-
-                        echo "<li>";
-                        echo listEntry($url, $ticket_id, $ticket_name, $snippets);
-                        echo "</li>";
-                    }
-                }
-                ?>
-            </ul>
+        
         </div>
     </div>
 </main>

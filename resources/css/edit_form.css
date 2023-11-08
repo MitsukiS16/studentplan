@@ -48,17 +48,3 @@
 	font-size: 1.5rem;
 }
 
-.departments-checkbox {
-	background-color: white;
-	padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
-    resize: vertical;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-	display: flex;
-}
-
-.department-checkbox-id {
-	margin: 0 auto 0 auto;
-}

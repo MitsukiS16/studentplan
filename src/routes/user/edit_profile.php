@@ -4,7 +4,6 @@ include_once('../../auxiliary/routing/checkURI.php');
 require_once('../../auxiliary/routing/redirect.php');
 require_once("../../auxiliary/db_interaction/db.php");
 require_once("../../auxiliary/db_interaction/users.php");
-require_once("../../auxiliary/db_interaction/departments.php");
 require_once('../../auxiliary/session_interaction/session.php');
 
 startSession();
@@ -26,7 +25,7 @@ if (($_POST)) {
         redirectTo('404');
     }
 
-    if ($user['user_id'] !== getSessionUserID()) {
+    if ($user['id_user'] !== getSessionUserID()) {
         if (getSessionUserRole() !== 'admin') {
             redirectTo('403');
         }
@@ -66,7 +65,7 @@ if (($_POST)) {
         }
         if ($user['role_type'] != $_POST['role_type'] && getSessionUserRole() === 'admin' && !empty($_POST['role_type'])) {
             $role_type = $_POST['role_type'];
-            updateUserRole($pdo, $id, $role_type);
+            // updateUserRole($pdo, $id, $role_type);
         }
         if (!empty($_POST['new_password']) && !empty($_POST['confirm_password'])) {
             if ($_POST['new_password'] === $_POST['confirm_password']) {
@@ -81,29 +80,6 @@ if (($_POST)) {
             $error_message = "You need to enter a new password and confirm it";
         }
 
-        $departments = getAllDepartments($pdo);
-        $user_departments = getUserDepartmentIDs($pdo, $id);
-        // var_dump($user_departments);
-        // echo "<br />";
-        // var_dump($_POST);
-        foreach ($departments as $department) {
-            $department_name = $department['department_name'];
-            $post_department = $_POST[$department_name];
-            if (!empty($post_department) && $post_department === 'on') {
-                if (in_array($department['department_id'], $user_departments)) {
-                    continue;
-                }
-                // echo $department_id 
-                insertNewUserDepartment($pdo, $id, $department['department_id']);
-            } else {
-                if (in_array($department['department_id'], $user_departments)) {
-                    deleteUserDepartment($pdo, $id, $department['department_id']);
-                }
-            }
-        }
-    } else {
-        $error_message = "Current password is incorrect";
-    }
 
     if (!$error_message)
         redirectTo('profile?id=' . $id);
@@ -112,4 +88,5 @@ if (($_POST)) {
         setSessionMessage($error_message);
         redirectTo('profile/edit?id=' . $id);
     }
+}
 }

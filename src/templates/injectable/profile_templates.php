@@ -1,11 +1,6 @@
 <?php
 include_once('../../auxiliary/routing/checkURI.php');
 
-/**
- * Builds a profile's information template
- * @param $profile_info - array with the profile's information. Keys contain are the title/description of their respective values.
- * @return HTML of the template
- */
 function profileInfoTemplate($profile_info)
 {
     $htmlStr = "";

@@ -4,7 +4,6 @@ include_once('../../auxiliary/routing/checkURI.php');
 require_once('src/auxiliary/routing/redirect.php');
 require_once('src/auxiliary/db_interaction/db.php');
 require_once('src/auxiliary/db_interaction/users.php');
-require_once('src/auxiliary/db_interaction/departments.php');
 require_once('src/auxiliary/session_interaction/session.php');
 
 $id = $_GET['id'];
@@ -30,7 +29,7 @@ if (!is_null($id)) {
         redirectTo('404');
     }
 
-    if ($user['user_id'] !== getSessionUserID()) {
+    if ($user['id_user'] !== getSessionUserID()) {
         if (getSessionUserRole() !== 'admin') {
             redirectTo('403');
         }
@@ -53,18 +52,6 @@ $role_type = $user['role_type'];
         <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($email) ?>"></textarea><br>
         <input type="url" id="picture" name="picture" placeholder="Profile Picture URL (jpg,jpeg,png)">
 
-        <div class="departments-checkbox">
-            <?php
-            if (getSessionUserRole() === 'admin') {
-                $departments = getAllDepartments($pdo);
-                foreach ($departments as $department) {
-                    $department_id = $department['department_id'];
-                    $department_name = $department['department_name'];
-                    echo '<div class="department-checkbox-id"> <input type="checkbox" id="' . $department_id . '" name="' . $department_name . '"> <p>' . $department_name . '</p></div>';
-                }
-            }
-            ?>
-        </div>
 
         <?php if (getSessionUserRole() === 'admin') : ?>
             <select id="role_type" name="role_type">

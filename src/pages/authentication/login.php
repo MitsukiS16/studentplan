@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if user exists and password is correct
     if ($user && password_verify($password, $user['pw_hash'])) {
         // Set session variable
-        setSessionUserData($user['user_id'], $username, $user['role_type']);
+        setSessionUserData($user['id_user'], $username, $user['role_type']);
         redirectToRoot();
     } else {
         $error_message = 'Invalid username or password.';

@@ -72,10 +72,6 @@ a.nav-button:hover {
 	background-color: #f44336;
 }
 
-.hashtag-bubble {
-	background-color: #2ac2f0;
-}
-
 .status-bubble {
 	display: flex;
 	justify-content: center;
@@ -92,6 +88,3 @@ a.nav-button:hover {
 	text-overflow: ellipsis;
 }
 
-#ticket-fetch-button:disabled {
-	display: none;
-}

@@ -12,13 +12,6 @@ function buildSnippets(snippets) {
                     </div>
                     `;
 					break;
-				case "Hashtags":
-					htmlStr += `
-                    <div class="hashtag-bubble status-bubble">
-                        <p>${label}: ${value}</p>
-                    </div>
-                    `;
-					break;
 				default:
 					htmlStr += `<p>${label}: ${value}</p>`;
 					break;
@@ -28,14 +21,11 @@ function buildSnippets(snippets) {
 	return htmlStr;
 }
 
-function listEntry(url, id, name, snippets) {
+function listEntry(url, id, name) {
 	return `
     <a class="w-full" href="${url}?id=${id}">
         <div class="list-item-card container-box container-box-interactable">
             <h3>${escapeHTML(name)}</h3>
-            <div class="simple-flex-row items-center">
-                ${buildSnippets(snippets)}
-            </div>
         </div>
     </a>`;
 }

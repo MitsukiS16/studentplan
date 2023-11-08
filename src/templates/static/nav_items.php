@@ -11,12 +11,10 @@ if (isUserLoggedIn()) {
     // setup nav actions for each role
     switch (getSessionUserRole()) {
         case 'admin':
-        case 'agent':
-            $nav_items["/departments"] = "Departments";
+        case 'teacher':
+            // $nav_items["/departments"] = "Departments";
         default:
             $nav_items = array_merge($nav_items, array(
-                "/ticket/create" => "Create a ticket",
-                "/tickets" => "Tickets",
                 "/profile?id=" . getSessionUserID() => "Profile"
             ));
     }
