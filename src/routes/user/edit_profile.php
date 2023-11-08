@@ -65,7 +65,7 @@ if (($_POST)) {
         }
         if ($user['role_type'] != $_POST['role_type'] && getSessionUserRole() === 'admin' && !empty($_POST['role_type'])) {
             $role_type = $_POST['role_type'];
-            // updateUserRole($pdo, $id, $role_type);
+            updateUserRole($pdo, $id, $role_type);
         }
         if (!empty($_POST['new_password']) && !empty($_POST['confirm_password'])) {
             if ($_POST['new_password'] === $_POST['confirm_password']) {

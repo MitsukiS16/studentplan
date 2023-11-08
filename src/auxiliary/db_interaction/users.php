@@ -11,10 +11,6 @@ function getUserWithID($pdo, $id)
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-// function getAllAgents($pdo)
-// {
-//     return $pdo->query("SELECT * FROM USERS WHERE ROLE_TYPE LIKE 'agent' OR ROLE_TYPE LIKE 'admin';")->fetchAll(PDO::FETCH_ASSOC);
-// }
 
 function getUserWithUsername($pdo, $username)
 {
@@ -53,9 +49,10 @@ function getUserWithEmail($pdo, $email)
 
 function insertNewUser($pdo, $username, $email, $role_type, $pw_hash)
 {
-    $query = $pdo->prepare('INSERT INTO USERS(username, email, role_type, pw_hash,created_at) VALUES (?, ?, ?,?,?)');
+    $query = $pdo->prepare('INSERT INTO USERS (username, email, role_type, pw_hash, created_at) VALUES (?, ?, ?, ?, ?)');
     $query->execute([$username, $email, $role_type, $pw_hash, date("Y-m-d")]);
 }
+
 
 // // function insertNewUserDepartment($pdo, $id_user, $department_id)
 // // {

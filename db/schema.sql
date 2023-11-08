@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS USERS (
     last_name VARCHAR(30),
     picture BLOB,
     role_type TEXT CHECK(role_type IN ('student', 'teacher', 'admin')) NOT NULL DEFAULT 'student',
-    created_at DATETIME DEFAULT (datetime('now')),
+    created_at DATE DEFAULT (date('now')),
     FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school),
     FOREIGN KEY(id_course) REFERENCES COURSE(id_course),
     FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled)

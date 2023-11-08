@@ -31,7 +31,7 @@ if (!is_null($id)) {
 
     if ($user_data['id_user'] !== getSessionUserID()) {
         $session_role = getSessionUserRole();
-        if ($session_role !== 'admin' && $session_role  !== 'agent') {
+        if ($session_role !== 'admin') {
             redirectTo('403');
         }
     }
