@@ -6,19 +6,16 @@ include_once('../routing/checkURI.php');
 
 function getUserWithID($pdo, $id)
 {
-    $query = $pdo->prepare("SELECT * FROM REPORTCARD WHERE id_user=?");
+    $query = $pdo->prepare("SELECT * FROM USERS WHERE id_user=?");
     $query->execute([$id]);
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 
 function getReportsId($pdo, $id) {
-    $query = $pdo->prepare('
-        SELECT * FROM REPORTCARD
-        WHERE id_user = ?
-    ');
+    $query = $pdo->prepare("SELECT * FROM REPORTCARD WHERE id_report_card=?");
     $query->execute([$id]);
-    return $query->fetchAll();
+    return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 function getUserWithUsername($pdo, $username)
@@ -124,24 +121,17 @@ function getAdminPassword($pdo, $id)
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-// // function deleteUserDepartment($pdo, $id_user, $department_id)
-// // {
-// //     $query = $pdo->prepare("DELETE FROM USER_DEPARTMENTS WHERE id_user=? AND department_id=?");
-// //     return $query->execute([$id_user, $department_id]);
-// // }
-
-
-
 
 function getCountUserSubjets($pdo, $id_user)
 {
-    $query = $pdo->prepare('
-        SELECT COUNT(DISTINCT rs.id_subject) as count
-        FROM REPORTCARDSUBJECTS rs
-        INNER JOIN REPORTCARD rc ON rs.id_report_card = rc.id_report_card
-        WHERE rc.id_user = ? AND rs.subject_status = TRUE
-    ');
-    $query->execute([$id_user]);
-    $result = $query->fetch();
-    return $result['count'];
+    // $query = $pdo->prepare('
+    //     SELECT COUNT(DISTINCT rs.id_subject) as count
+    //     FROM REPORTCARDSUBJECTS rs
+    //     INNER JOIN REPORTCARD rc ON rs.id_report_card = rc.id_report_card
+    //     WHERE rc.id_user = ? AND rs.subject_status = TRUE
+    // ');
+    // $query->execute([$id_user]);
+    // $result = $query->fetch();
+    // return $result['count'];
+    return null;
 }

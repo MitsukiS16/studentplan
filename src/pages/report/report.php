@@ -31,18 +31,8 @@ switch ($session_role) {
     case 'student':
     default:
     $reportIds = getReportsId($pdo, getSessionUserID());
-
-    foreach ($reportIds as $reportId) {
-        $reportCycle = getReportCycle($pdo, $reportId);
-        $reportYear = getReportYear($pdo, $reportId);
-        $reportSchoolName = getSchoolName($pdo, $reportId);
-        $reportCountSubjects = getReportCountSubjects($pdo, $reportId);
-        $reportAverage = getReportAverage($pdo, $reportId);
-        $reportLastUpdated = getReportLastUpdated($pdo, $reportId);
-        $reportDescription = getReportDescription($pdo, $reportId);
         // $reportData($reportsId,$reportCycle,$reportYear,$reportSchoolName,$reportCountSubjects,$reportAverage,$reportLastUpdated,$reportDescription);
         break;
-    }
 }
 
 ?>
@@ -65,14 +55,35 @@ switch ($session_role) {
             <?php
                 // Loop through the fetched data and populate table rows dynamically
                 foreach ($reportIds as $reportId) {
+                    $reportCycle = getReportCycle($pdo, $reportId);
+                    $reportCycle = ($reportCycle != null) ? htmlspecialchars($reportCycle) : "-";
+                    
+                    $reportYear = getReportYear($pdo, $reportId);
+                    $reportYear = ($reportYear != null) ? htmlspecialchars($reportYear) : "-";
+                    
+                    $reportSchoolName = getSchoolName($pdo, $reportId);
+                    $reportSchoolName = ($reportSchoolName != null) ? htmlspecialchars($reportSchoolName) : "-";
+
+                    $reportCountSubjects = getReportCountSubjects($pdo, $reportId);
+                    $reportCountSubjects = ($reportCountSubjects != null) ? htmlspecialchars($reportCountSubjects) : "-";
+
+                    $reportAverage = getReportAverage($pdo, $reportId);
+                    $reportAverage = ($reportAverage != null) ? htmlspecialchars($reportAverage) : "-";
+
+                    $reportLastUpdated = getReportLastUpdated($pdo, $reportId);
+                    $reportLastUpdated = ($reportLastUpdated != null) ? htmlspecialchars($reportLastUpdated) : "-";
+
+                    $reportDescription = getReportDescription($pdo, $reportId);
+                    $reportDescription = ($reportDescription != null) ? htmlspecialchars($reportDescription) : "-";
+
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($reportCycle) . "</td>";
-                    echo "<td>" . htmlspecialchars($reportYear) . "</td>";
-                    echo "<td>" . htmlspecialchars($reportSchoolName) . "</td>";
-                    echo "<td>" . htmlspecialchars($reportCountSubjects) . "</td>";
-                    echo "<td>" . htmlspecialchars($reportAverage) . "</td>";
-                    echo "<td>" . htmlspecialchars($reportLastUpdated) . "</td>";
-                    echo "<td>" . htmlspecialchars($reportDescription) . "</td>";
+                    echo "<td>" . $reportCycle . "</td>";
+                    echo "<td>" . $reportYear . "</td>";
+                    echo "<td>" . $reportSchoolName . "</td>";
+                    echo "<td>" . $reportCountSubjects . "</td>";
+                    echo "<td>" . $reportAverage . "</td>";
+                    echo "<td>" . $reportLastUpdated . "</td>";
+                    echo "<td>" . $reportDescription . "</td>";
                     echo "</tr>";
                 }
             ?>
