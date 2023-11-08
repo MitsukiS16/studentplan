@@ -104,8 +104,3 @@ function getAdminPassword($pdo, $id)
 // // }
 
 
-function getStudentReportCards($pdo, $id) {
-    $query = $pdo->prepare("SELECT * FROM STUDENTREPORTCARD WHERE id_user=?");
-    $query->execute([$id]);
-    return $query->fetch(PDO::FETCH_ASSOC);
-}

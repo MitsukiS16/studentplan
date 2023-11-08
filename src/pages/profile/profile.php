@@ -40,7 +40,6 @@ if (!is_null($id)) {
 
     $subjects = getUserSubjects($pdo, $id);
 
-    $studentreportcards = getStudentReportCards($pdo, $id);
 
     $user_info = [
         "Username" => $user_data['username'],
