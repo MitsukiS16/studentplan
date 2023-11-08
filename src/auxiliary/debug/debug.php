@@ -1,4 +1,5 @@
 <?php
+
 include_once('../routing/checkURI.php');
 
 function printToConsole($data)

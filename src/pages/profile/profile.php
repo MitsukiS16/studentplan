@@ -39,11 +39,11 @@ if (!is_null($id)) {
     $picture = $user_data['picture'];
 
 
-    $user_info = array(
+    $user_info = [
         "Username" => $user_data['username'],
         "Email" => $user_data['email'],
         "Joined in" => $user_data['created_at'],
-    );
+    ];
 
 }
 ?>
