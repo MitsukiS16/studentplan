@@ -9,7 +9,7 @@ require_once('src/templates/static/nav_items.php');
 <footer>
     <section class="col-1">
         <h3>Funcionalidades</h3>
-        <ul class="height-100 centered-flex-col">
+        <ul class="height-80 centered-flex-col">
             <?php
             foreach ($nav_items as $uri => $label) {
                 echo '<li><a class="nav-button" href="' . $uri . '">' . $label . '</a></li>';
@@ -20,7 +20,7 @@ require_once('src/templates/static/nav_items.php');
 
     <section class="col-2 centered-flex-col">
         <h3>Disciplinas</h3>
-        <ul class="height-50 centered-flex-col">
+        <ul class="centered-flex-col">
         <li><a class="nav-button" href="#">Português</a></li>
         <li><a class="nav-button" href="#">Matemática</a></li>
         </ul>

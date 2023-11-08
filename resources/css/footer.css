@@ -8,45 +8,20 @@ footer {
 	text-align: center;
 }
 
+
+footer p {
+	margin: 0.5rem 0.5rem;
+}
+
+
 footer > .col-1 {
 	min-width: 160px;
 }
 
 footer .col-1 a {
-	font-size: 14px;
 	white-space: nowrap;
 }
 
-footer > .col-2 {
-	flex-grow: 1;
-}
-
-footer > .col-2 form input {
-	min-width: 50px;
-	width: 100%;
-	max-width: 400px;
-	height: 45px;
-	border-radius: 4px;
-	margin: 1rem 0;
-	outline: none;
-	border: none;
-	text-align: center;
-}
-
-footer > .col-2 form button {
-	background: transparent;
-	border: 2px solid white;
-	color: white;
-	border-radius: 30px;
-	padding: 10px 30px;
-	font-size: 15px;
-	cursor: pointer;
-}
-
-footer > .col-3 p,
-footer > .col-3 h3 {
-	margin: 1rem 0;
-}
 
 .footer-icons i {
 	font-size: 22px;

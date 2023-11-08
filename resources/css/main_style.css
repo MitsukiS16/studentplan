@@ -40,6 +40,14 @@ h1 {
 	margin: 1rem;
 }
 
+h3 {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 1.2rem;
+	text-align: center;
+	margin: 0.5rem;
+}
+
 a {
 	color: black;
 }
@@ -141,12 +149,8 @@ a {
 	width: fit-content;
 }
 
-.height-100 {
-	height: 100%;
-}
-
-.height-50 {
-	height: 50%;
+.height-80 {
+	height: 80%;
 }
 
 
