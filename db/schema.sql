@@ -40,14 +40,14 @@ CREATE TABLE IF NOT EXISTS SUBJECTS (
     id_teacher INTEGER NOT NULL,
     name_subject VARCHAR(30) NOT NULL,
     student_count INT,
-    happiness INT,
-    subject_status BOOLEAN NOT NULL DEFAULT 'TRUE',
     FOREIGN KEY(id_teacher) REFERENCES TEACHER(id_teacher)
 );
 
 CREATE TABLE IF NOT EXISTS SUBJECTUSER (
     id_user INTEGER NOT NULL,
     id_subject INTEGER NOT NULL,
+    happiness INT,
+    subject_status BOOLEAN NOT NULL DEFAULT 'TRUE',
     FOREIGN KEY(id_user) REFERENCES USER(id_user),
     FOREIGN KEY(id_subject) REFERENCES SUBJECTS(id_subject),
     CONSTRAINT subjects_user_pk PRIMARY KEY (id_user, id_subject)
@@ -98,8 +98,6 @@ CREATE TABLE IF NOT EXISTS TEACHER (
 
 CREATE TABLE IF NOT EXISTS STUDENTREPORT (
     id_student_report INTEGER NOT NULL PRIMARY KEY,
-    average_grade INT,
-    class_rank INT,
     description_student_report TEXT,
     created_at DATETIME DEFAULT (datetime('now')),
     updated_at DATETIME DEFAULT (datetime('now'))

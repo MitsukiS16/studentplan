@@ -7,7 +7,6 @@ require_once('src/auxiliary/db_interaction/users.php');
 require_once('src/auxiliary/session_interaction/session.php');
 require_once('src/templates/injectable/list_templates.php');
 require_once('src/templates/injectable/profile_templates.php');
-require_once('');
 
 if (!isUserLoggedIn()) {
     redirectTo('sign-in');
