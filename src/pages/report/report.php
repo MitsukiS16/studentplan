@@ -12,8 +12,6 @@ require_once('src/templates/injectable/profile_templates.php');
 require_once('src/templates/injectable/list_templates.php');
 require_once('src/templates/injectable/error_templates.php');
 
-startSession();
-
 if (!isUserLoggedIn()) {
     redirectTo('403');
 }
@@ -23,6 +21,10 @@ if ($session_role !== 'admin' && $session_role !== 'teacher' && $session_role !=
     redirectTo('403');
 }
 
+$db_path = 'db/app.db';
+$pdo = connectToDB($db_path);
+
+
 switch ($session_role) {
     case 'admin':
         break;
@@ -30,7 +32,7 @@ switch ($session_role) {
         break;
     case 'student':
     default:
-    $reportIds = getReportsId($pdo, getSessionUserID());
+        $reportIds = getReportsId($pdo, getSessionUserID());
         // $reportData($reportsId,$reportCycle,$reportYear,$reportSchoolName,$reportCountSubjects,$reportAverage,$reportLastUpdated,$reportDescription);
         break;
 }
@@ -55,7 +57,7 @@ switch ($session_role) {
             <?php
                 // Loop through the fetched data and populate table rows dynamically
                 foreach ($reportIds as $reportId) {
-                    $reportCycle = getReportCycle($pdo, $reportId);
+                    $reportCycle = getReportCycleName($pdo, $reportId);
                     $reportCycle = ($reportCycle != null) ? htmlspecialchars($reportCycle) : "-";
                     
                     $reportYear = getReportYear($pdo, $reportId);
@@ -73,9 +75,6 @@ switch ($session_role) {
                     $reportLastUpdated = getReportLastUpdated($pdo, $reportId);
                     $reportLastUpdated = ($reportLastUpdated != null) ? htmlspecialchars($reportLastUpdated) : "-";
 
-                    $reportDescription = getReportDescription($pdo, $reportId);
-                    $reportDescription = ($reportDescription != null) ? htmlspecialchars($reportDescription) : "-";
-
                     echo "<tr>";
                     echo "<td>" . $reportCycle . "</td>";
                     echo "<td>" . $reportYear . "</td>";
@@ -83,7 +82,7 @@ switch ($session_role) {
                     echo "<td>" . $reportCountSubjects . "</td>";
                     echo "<td>" . $reportAverage . "</td>";
                     echo "<td>" . $reportLastUpdated . "</td>";
-                    echo "<td>" . $reportDescription . "</td>";
+                    echo "<td> <button type='button'>+</button> </td>";
                     echo "</tr>";
                 }
             ?>

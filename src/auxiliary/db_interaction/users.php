@@ -11,13 +11,6 @@ function getUserWithID($pdo, $id)
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
-
-function getReportsId($pdo, $id) {
-    $query = $pdo->prepare("SELECT * FROM REPORTCARD WHERE id_report_card=?");
-    $query->execute([$id]);
-    return $query->fetch(PDO::FETCH_ASSOC);
-}
-
 function getUserWithUsername($pdo, $username)
 {
     $query = $pdo->prepare('SELECT * FROM USERS WHERE username = ?');
@@ -34,8 +27,7 @@ function getUserWithEmail($pdo, $email)
 
 function getUserSubjects($pdo, $id_user, $id_report_card)
 {
-    $query = $pdo->prepare('
-        SELECT s.id_subject, s.name_subject
+    $query = $pdo->prepare('SELECT s.id_subject, s.name_subject
         FROM SUBJECTS s
         JOIN REPORTCARDSUBJECTS rs ON s.id_subject = rs.id_subject
         WHERE rs.id_report_card = ? AND rs.id_report_card IN (
@@ -48,8 +40,7 @@ function getUserSubjects($pdo, $id_user, $id_report_card)
 
 function getCurrentUsersSubjects($pdo, $id_user)
 {
-    $query = $pdo->prepare('
-        SELECT s.id_subject, s.name_subject
+    $query = $pdo->prepare('SELECT s.id_subject, s.name_subject 
         FROM SUBJECTS s
         JOIN REPORTCARDSUBJECTS rs ON s.id_subject = rs.id_subject
         WHERE rs.subject_status = TRUE
@@ -63,14 +54,6 @@ function getCurrentUsersSubjects($pdo, $id_user)
 
 
 
-
-// // function getUserDepartmentIDs($pdo, $id_user)
-// // {
-// //     $query = $pdo->prepare('SELECT UDPT.department_id AS department_id FROM USER_DEPARTMENTS UDPT JOIN USERS U ON UDPT.id_user=U.id_user WHERE U.id_user = ?');
-// //     $query->execute([$id_user]);
-// //     return $query->fetchAll(PDO::FETCH_COLUMN);
-// // }
-
 function insertNewUser($pdo, $username, $email, $role_type, $pw_hash)
 {
     $query = $pdo->prepare('INSERT INTO USERS (username, email, role_type, pw_hash, created_at) VALUES (?, ?, ?, ?, ?)');
@@ -78,11 +61,6 @@ function insertNewUser($pdo, $username, $email, $role_type, $pw_hash)
 }
 
 
-// // function insertNewUserDepartment($pdo, $id_user, $department_id)
-// // {
-// //     $query = $pdo->prepare('INSERT INTO USER_DEPARTMENTS VALUES (?, ?)');
-// //     $query->execute([$id_user, $department_id]);
-// // }
 
 function updateUserUsername($pdo, $id_user, $username)
 {
@@ -124,14 +102,19 @@ function getAdminPassword($pdo, $id)
 
 function getCountUserSubjets($pdo, $id_user)
 {
-    // $query = $pdo->prepare('
-    //     SELECT COUNT(DISTINCT rs.id_subject) as count
-    //     FROM REPORTCARDSUBJECTS rs
-    //     INNER JOIN REPORTCARD rc ON rs.id_report_card = rc.id_report_card
-    //     WHERE rc.id_user = ? AND rs.subject_status = TRUE
-    // ');
-    // $query->execute([$id_user]);
-    // $result = $query->fetch();
-    // return $result['count'];
-    return null;
+    $query = $pdo->prepare('
+        SELECT COUNT(DISTINCT rs.id_subject) as count
+        FROM REPORTCARDSUBJECTS rs
+        INNER JOIN REPORTCARD rc ON rs.id_report_card = rc.id_report_card
+        WHERE rc.id_user = ? AND rs.subject_status = TRUE
+    ');
+    $query->execute([$id_user]);
+    $result = $query->fetch();
+    return $result['count'];
+}
+
+function getReportsId($pdo, $userId) {
+    $query = $pdo->prepare("SELECT id_report_card FROM REPORTCARD WHERE id_user=?");
+    $query->execute([$userId]);
+    return $query->fetchAll(PDO::FETCH_COLUMN);
 }
