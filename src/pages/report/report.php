@@ -6,6 +6,8 @@ require_once('src/auxiliary/session_interaction/session.php');
 require_once('src/auxiliary/db_interaction/db.php');
 require_once('src/auxiliary/db_interaction/courses.php');
 require_once('src/auxiliary/db_interaction/subjects.php');
+require_once('src/auxiliary/db_interaction/report.php');
+require_once('src/auxiliary/db_interaction/users.php');
 require_once('src/templates/injectable/profile_templates.php');
 require_once('src/templates/injectable/list_templates.php');
 require_once('src/templates/injectable/error_templates.php');
@@ -21,63 +23,59 @@ if ($session_role !== 'admin' && $session_role !== 'teacher' && $session_role !=
     redirectTo('403');
 }
 
-switch (getSessionUserRole()) {
+switch ($session_role) {
     case 'admin':
         break;
     case 'teacher':
         break;
     case 'student':
     default:
-        // $reportcard = getReportCard($pdo, getSessionUserID());
-        // $nsubjects = getCountSubjets($pdo, getSessionUserID());
-        // $lastUpdated = getLastDateUpdated($pdo, getSessionUserID());
+    $reportIds = getReportsId($pdo, getSessionUserID());
 
-    //$reportcardstickets = getUserTicketsChunk($pdo, getSessionUserID(), $limit, $offset);
+    foreach ($reportIds as $reportId) {
+        $reportCycle = getReportCycle($pdo, $reportId);
+        $reportYear = getReportYear($pdo, $reportId);
+        $reportSchoolName = getSchoolName($pdo, $reportId);
+        $reportCountSubjects = getReportCountSubjects($pdo, $reportId);
+        $reportAverage = getReportAverage($pdo, $reportId);
+        $reportLastUpdated = getReportLastUpdated($pdo, $reportId);
+        $reportDescription = getReportDescription($pdo, $reportId);
+        // $reportData($reportsId,$reportCycle,$reportYear,$reportSchoolName,$reportCountSubjects,$reportAverage,$reportLastUpdated,$reportDescription);
         break;
+    }
 }
 
 ?>
 
 <main class="main-page-container main-container-size">
-    <h1>Relatórios Anuais</h1>
+    <h1>Relatório Anual</h1>
     <div>
-        <li><a class="table" href="#"></a></li>
+        <li><a class="table"></a></li>
         <table id="reportcards">
             <tr>
                 <th>Ciclo/Curso</th>
                 <th>Ano</th>
+                <th>Escola</th>
                 <th>Nº Disciplinas</th>
-                <th>Nº Alunos</th>
+                <th>Média</th>
+                <th>Última Atualização</th>
+                <th>Outras Info</th>
                 <!-- Add more table headers as needed -->
             </tr>
-            <tr>
-                <td><?php echo htmlspecialchars($course['cycle']); ?></td>
-                <td><?php echo htmlspecialchars($course['year']); ?></td>
-                <td><?php echo htmlspecialchars($course_info['Subjects']); ?></td>
-                <td><?php echo htmlspecialchars($course_info['Users']); ?></td>
-                <!-- Add more table data cells as needed -->
-            </tr>
+            <?php
+                // Loop through the fetched data and populate table rows dynamically
+                foreach ($reportIds as $reportId) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($reportCycle) . "</td>";
+                    echo "<td>" . htmlspecialchars($reportYear) . "</td>";
+                    echo "<td>" . htmlspecialchars($reportSchoolName) . "</td>";
+                    echo "<td>" . htmlspecialchars($reportCountSubjects) . "</td>";
+                    echo "<td>" . htmlspecialchars($reportAverage) . "</td>";
+                    echo "<td>" . htmlspecialchars($reportLastUpdated) . "</td>";
+                    echo "<td>" . htmlspecialchars($reportDescription) . "</td>";
+                    echo "</tr>";
+                }
+            ?>
         </table>
-        <!-- <table id="reportcards">
-            <tr>
-                <th>Ciclo/Curso</th>
-                <th>Ano</th>
-                <th>Nº Disciplinas</th>
-                <th>Escola</th>
-                <th>Média</th>
-                <th>Outras Info</th>
-            </tr>
-            <tr>
-                <td>1º Ciclo</td>
-                <td>1º Ano</td>
-                <td>4</td>
-                <td>30</td>
-                <td>Picua</td>
-                <td>3</td>
-                <td>+</td>
-            </tr>
-            </table> -->
     </div>
-
-
 </main>

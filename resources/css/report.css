@@ -1,5 +1,5 @@
 #reportcards {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
@@ -10,15 +10,16 @@
   text-align: center;
 }
 
-#reportcards tr:nth-child(even){background-color: var(--lightgrey);}
-#reportcards tr:nth-child(odd){background-color: white}
+#reportcards tr:nth-child(odd){background-color: var(--lightgrey);}
+#reportcards tr:nth-child(even){background-color: white}
 
 #reportcards tr:hover {background-color: var(--greenblue);}
 
 #reportcards th {
-padding-top: 12px;
-padding-bottom: 12px;
-text-align: left;
+padding-top: 0.6rem;
+padding-bottom: 0.6rem;
+text-align: center;
 background-color: var(--purple);
 color: white;
+
 }

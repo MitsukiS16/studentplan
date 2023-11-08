@@ -7,8 +7,6 @@ CREATE TABLE IF NOT EXISTS SCHOOL (
 
 CREATE TABLE IF NOT EXISTS USERS (
     id_user INTEGER NOT NULL PRIMARY KEY,
-    id_school INTEGER,
-    id_course INTEGER,
     id_enrolled INTEGER,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -18,20 +16,23 @@ CREATE TABLE IF NOT EXISTS USERS (
     picture BLOB,
     role_type TEXT CHECK(role_type IN ('student', 'teacher', 'admin')) NOT NULL DEFAULT 'student',
     created_at DATE DEFAULT (date('now')),
-    FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school),
-    FOREIGN KEY(id_course) REFERENCES COURSE(id_course),
     FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled)
+);
+
+
+CREATE TABLE IF NOT EXISTS CYCLE (
+    id_cycle INTEGER NOT NULL PRIMARY KEY,
+    name_cycle VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS ENROLLED (
     id_enrolled INTEGER NOT NULL PRIMARY KEY,
+    id_school INTEGER,
+    id_cycle INTEGER,
+    year INT NOT NULL,
     year_enrolled YEAR NOT NULL,
-    trimester_enrolled INT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS COURSE (
-    id_course INTEGER NOT NULL PRIMARY KEY,
-    name_course VARCHAR(50)
+    FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school),
+    FOREIGN KEY(id_cycle) REFERENCES CYCLE(id_cycle)
 );
 
 CREATE TABLE IF NOT EXISTS SUBJECTS (
@@ -41,13 +42,15 @@ CREATE TABLE IF NOT EXISTS SUBJECTS (
     FOREIGN KEY(id_teacher) REFERENCES TEACHER(id_teacher)
 );
 
-CREATE TABLE IF NOT EXISTS COURSESUBJECT (
-    id_course INTEGER NOT NULL,
+
+CREATE TABLE IF NOT EXISTS CYCLESUBJECTS (
+    id_cycle INTEGER NOT NULL,
     id_subject INTEGER NOT NULL,
-    FOREIGN KEY(id_course) REFERENCES COURSE(id_course),
+    FOREIGN KEY(id_cycle) REFERENCES CYCLE(id_cycle),
     FOREIGN KEY(id_subject) REFERENCES SUBJECTSTUDENT(id_subject),
-    CONSTRAINT course_subject_pk PRIMARY KEY (id_course, id_subject)
+    CONSTRAINT cycle_subject_pk PRIMARY KEY (id_cycle, id_subject)
 );
+
 
 CREATE TABLE IF NOT EXISTS EVALUATION (
     id_evaluation INTEGER NOT NULL PRIMARY KEY,
@@ -84,24 +87,21 @@ CREATE TABLE IF NOT EXISTS TEACHER (
     name_teacher VARCHAR(30) NOT NULL
 );
 
-
 CREATE TABLE IF NOT EXISTS REPORTCARD (
     id_report_card INTEGER NOT NULL PRIMARY KEY,
     id_user INTEGER,
-    id_school INTEGER,
     id_enrolled INTEGER,
-    created_at DATETIME DEFAULT (datetime('now')),
-    updated_at DATETIME DEFAULT (datetime('now')),
+    created_at DATE DEFAULT (date('now')),
+    updated_at DATE DEFAULT (date('now')),
     description_report_card TEXT,
     FOREIGN KEY(id_user) REFERENCES USER(id_user),
-    FOREIGN KEY(id_school) REFERENCES SCHOOL(id_school)
     FOREIGN KEY(id_enrolled) REFERENCES ENROLLED(id_enrolled)
 );
+
 
 CREATE TABLE IF NOT EXISTS REPORTCARDSUBJECTS (
     id_report_card INTEGER NOT NULL,
     id_subject INTEGER NOT NULL,
-    subject_status BOOLEAN NOT NULL,
     FOREIGN KEY(id_report_card) REFERENCES REPORTCARD(id_report_card),
     FOREIGN KEY(id_subject) REFERENCES SUBJECTS(id_subject),
     CONSTRAINT report_card_subjects_pk PRIMARY KEY (id_report_card, id_subject)

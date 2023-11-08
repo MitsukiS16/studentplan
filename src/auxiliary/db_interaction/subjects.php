@@ -11,3 +11,4 @@ function getSubjectWithID($pdo, $id)
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
+
