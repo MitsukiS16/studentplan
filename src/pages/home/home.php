@@ -12,24 +12,24 @@ if (isMessageSet()) {
 }
 
 $article1_contents = array(
-    "Are you striving for academic excellence and looking for a platform to organize your grades and subjects effectively?",
-    "Look no further! Classroom Student is your dedicated space to stay organized, responsible, and on top of your educational journey."
+    "Classroom Student é uma plataforma educacional inovadora que visa ajudar os estudantes a atingir o seu máximo potencial académico.",
+    "Com um design intuitivo e funcionalidades abrangentes, esta aplicação permite aos estudantes organizar as suas disciplinas, notas e metas de forma eficaz."
 );
 
 $instruction_contents = array(
-    "Create Your Profile: Get started by creating your personalized profile. Input your subjects, grades, and achievements to keep track of your progress.",
-    "Track Your Progress: Easily input your grades and subjects into our user-friendly interface. Stay on top of your academic performance and see your progress over time.",
-    "Stay Organized: Manage your subjects, assignments, and exam dates all in one place. Say goodbye to confusion and hello to clarity in your studies",
+    "Cria o Teu Perfil: Começa por criar um perfil personalizado. Insere as tuas disciplinas, notas e conquistas para acompanhares o teu progresso de forma fácil e rápida.",
+    "Acompanha o Teu Progresso: Regista as tuas notas e disciplinas na nossa interface intuitiva. Observa o teu desempenho académico e vê o teu crescimento ao longo do tempo.",
+    "Estabelece Metas: Define metas alcançáveis e monitoriza as tuas realizações. Visualiza o teu progresso académico e mantém-te motivado durante toda a tua jornada de aprendizagem.",
     "Set Goals: Set achievable goals and monitor your achievements. Visualize your academic growth and stay motivated throughout your learning journey.",
-    "Collaborate with Educators: Teachers and administrators can access your academic records, offer personalized guidance, and provide valuable insights to enhance your learning experience."
+    "Colabora com Educadores: Professores e administradores têm acesso aos teus registos académicos. Podem oferecer orientação personalizada e fornecer insights valiosos para enriquecer a tua experiência de aprendizagem."
 );
 ?>
 
 <main class="main-page-container main-container-size">
     <section class="container-box main-page-container home-section">
-        <h1>Welcome to <em>Classroom Student</em></h1>
+        <h1>Bem vindo à <em>Classroom Student</em></h1>
         <article>
-            <h2>Empowering Students with Expert Guidance!</h2>
+            <h2>Sobre a aplicação</h2>
             <?php
             foreach ($article1_contents as $paragraph) {
                 echo '<p>' . $paragraph . '</p>';
@@ -37,7 +37,7 @@ $instruction_contents = array(
             ?>
         </article>
         <article class="home-instructions">
-            <h2>How does it work?</h2>
+            <h2>Como Funciona?</h2>
             <ul>
                 <?php
                 foreach ($instruction_contents as $step) {

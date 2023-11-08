@@ -18,9 +18,6 @@ if (!isUserLoggedIn()) {
 $db_path = 'db/app.db';
 $pdo = connectToDB($db_path);
 
-$offset = 0;
-$limit = 2;
-
 switch (getSessionUserRole()) {
     case 'admin':
         //$tickets = getTicketsChunk($pdo, $limit, $offset);
@@ -38,12 +35,12 @@ switch (getSessionUserRole()) {
     case 'student':
     default:
         // for additional roles that may be created (functionally equivalent to a client, when it comes to permissions)
-        $subjects = getUserSubjectsChunk($pdo, getSessionUserID(), $limit, $offset);
+        //$subjects = getUserSubjectsChunk($pdo, getSessionUserID(), $limit, $offset);
         break;
 }
 
 ?>
 
 <main class="main-page-container main-container-size">
-<h1>Disciplinas</h1>
+<h1>Calculadora</h1>
 </main>

@@ -16,6 +16,9 @@ switch ($uri) {
     // case '/departments':
     //     include_once('src/pages/departments/departments.php');
     //     break;
+    case '/calculator':
+        include_once('src/pages/calculator/calculator.php');
+        break;
     case '/subjects':
         include_once('src/pages/subjects/subjects.php');
         break;

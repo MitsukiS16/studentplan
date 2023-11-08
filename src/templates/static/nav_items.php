@@ -15,8 +15,11 @@ if (isUserLoggedIn()) {
            //$nav_items["/subjects"] = "Subjectss";
         default:
             $nav_items = array_merge($nav_items, array(
-                "/report" => "Report",
-                "/profile?id=" . getSessionUserID() => "Profile"
+                "/report" => "Relatórios",
+                "/subjects" => "Disciplinas",
+                "/calculator" => "Calculadora",
+
+                "/profile?id=" . getSessionUserID() => "Perfil"
             ));
     }
     $nav_items['/sign-out'] = "Sign Out";
