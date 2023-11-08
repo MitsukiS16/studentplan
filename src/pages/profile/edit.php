@@ -56,7 +56,7 @@ $role_type = $user['role_type'];
         <?php if (getSessionUserRole() === 'admin') : ?>
             <select id="role_type" name="role_type">
                 <option value="admin">Admin</option>
-                <option value="student">Client</option>
+                <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
 
             </select><br>

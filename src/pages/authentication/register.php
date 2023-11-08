@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($password != $confirm_password) {
         $error_message = 'Passwords do not match.';
     } else {
-        $role = 'client';
+        $role = 'student';
         // Hash password
         $password = password_hash($password, PASSWORD_DEFAULT);
 
