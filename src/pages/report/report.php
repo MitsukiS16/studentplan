@@ -54,7 +54,7 @@ if (!is_null($id)) {
         <?php echo profileInfoTemplate($department_info) ?>
     </ul>
     <div>
-        <h2>My Report Cards</h2>
+        <h2>Relatórios Anuais</h2>
         
     </div>
 </main>

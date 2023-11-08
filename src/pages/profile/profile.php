@@ -71,7 +71,7 @@ if (!is_null($id)) {
                     <a class="edit-button" href="/profile/edit?id=<?php echo htmlspecialchars($_GET['id']); ?>">Edit</a>
                 <?php endif; ?>
             </div>
-            <h2>My Report Cards</h2>
+            <h2>Disciplinas</h2>
             <hr>
             <ul>
                 <?php
