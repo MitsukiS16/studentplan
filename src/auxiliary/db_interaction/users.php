@@ -102,15 +102,16 @@ function getAdminPassword($pdo, $id)
 
 function getCountUserSubjets($pdo, $id_user)
 {
-    $query = $pdo->prepare('
-        SELECT COUNT(DISTINCT rs.id_subject) as count
-        FROM REPORTCARDSUBJECTS rs
-        INNER JOIN REPORTCARD rc ON rs.id_report_card = rc.id_report_card
-        WHERE rc.id_user = ? AND rs.subject_status = TRUE
-    ');
-    $query->execute([$id_user]);
-    $result = $query->fetch();
-    return $result['count'];
+    // $query = $pdo->prepare('
+    //     SELECT COUNT(DISTINCT rs.id_subject) as count
+    //     FROM REPORTCARDSUBJECTS rs
+    //     INNER JOIN REPORTCARD rc ON rs.id_report_card = rc.id_report_card
+    //     WHERE rc.id_user = ? AND rs.subject_status = TRUE
+    // ');
+    // $query->execute([$id_user]);
+    // $result = $query->fetch();
+    // return $result['count'];
+    return null;
 }
 
 function getReportsId($pdo, $userId) {

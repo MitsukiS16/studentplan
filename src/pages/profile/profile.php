@@ -38,8 +38,8 @@ if (!is_null($id)) {
 
     $picture = $user_data['picture'];
 
-    $subjects = getCurrentUsersSubjects($pdo, $id);
-
+    // $subjects = getCurrentUsersSubjects($pdo, $id);
+    $subjects = 0;
 
     $user_info = [
         "Username" => $user_data['username'],
