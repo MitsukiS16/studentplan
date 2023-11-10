@@ -20,8 +20,12 @@ Hobby: Teacher
 
 ## Features
 
-- Create an account
-- 
+- Create an account: Students/Teachers/Educators can create/edit/delete an account.
+- Create a schedule
+- Create a report
+- Add/Remove a notifications
+- Add/Remove a subject
+- Add/Remove teachers/educators
 
 ## Links
 
@@ -32,7 +36,8 @@ https://inspiring.future.pt/stories/introduzindo-a-nova-calculadora-da-media
 
 ## Restrictions
 
-> Only administrator and students can add their teachers and educators 
+- Only admin and students can add their teachers and educators 
+- 
 
 ## Known Issues
 
